@@ -159,6 +159,6 @@ This calculator is provided for informational purposes only.
 
 \---
 
-[!\[GitHub](https://img.shields.io/badge/GitHub-View%20Repo-blue?logo=github)](https://github.com/plecohobby/Aquacalc)
-[!\[License](https://img.shields.io/badge/License-Proprietary-red)](LICENSE.txt)
+[![GitHub](https://img.shields.io/badge/GitHub-View%20Repo-blue?logo=github)](https://github.com/plecohobby/Aquacalc)
+[![License](https://img.shields.io/badge/License-Proprietary-red)](LICENSE.txt)
 
