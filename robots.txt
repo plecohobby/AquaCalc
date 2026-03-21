@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://lamerspy.github.io/Aquacalc/sitemap.xml
+Sitemap: https://plecohobby.github.io/AquaCalc/sitemap.xml
