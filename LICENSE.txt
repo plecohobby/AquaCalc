@@ -75,7 +75,7 @@ The following activities are EXPRESSLY PERMITTED:
    Установка и запуск Программного обеспечения для личного управления 
    аквариумом
 
-✅ Sharing links to the official website (https://lamerspy.github.io/Aquacalc/)
+✅ Sharing links to the official website (https://plecohobby.github.io/AquaCalc/)
    Публикация ссылок на официальный веб-сайт
 
 ================================================================================
@@ -183,8 +183,8 @@ Any disputes shall be resolved in the courts of the Russian Federation /
 
 PlecoHobby
 📧 Email: plecohobby@gmail.com
-🌐 Website: https://lamerspy.github.io/Aquacalc/
-💻 GitHub: https://github.com/lamerspy/Aquacalc
+🌐 Website: https://plecohobby.github.io/AquaCalc/
+💻 GitHub: https://github.com/plecohobby/Aquacalc
 
 ================================================================================
 10. ACCEPTANCE OF TERMS / ПРИНЯТИЕ УСЛОВИЙ
