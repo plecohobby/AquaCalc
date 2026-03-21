@@ -133,7 +133,7 @@ This calculator is provided for informational purposes only.
 |**Email**|plecohobby@gmail.com|
 |**GitHub**|https://github.com/plecohobby|
 |**Website**|https://plecohobby.github.io/AquaCalc/|
-|**Репозиторий**|https://github.com/plecohobby/Aquacalc|
+|**Репозиторий**|https://plecohobby.github.io/AquaCalc/|
 
 \---
 
@@ -159,6 +159,6 @@ This calculator is provided for informational purposes only.
 
 \---
 
-[![GitHub](https://img.shields.io/badge/GitHub-View%20Repo-blue?logo=github)](https://github.com/plecohobby/Aquacalc)
+[![GitHub](https://img.shields.io/badge/GitHub-View%20Repo-blue?logo=github)](https://github.com/plecohobby/AquaCalc)
 [![License](https://img.shields.io/badge/License-Proprietary-red)](LICENSE.txt)
 
