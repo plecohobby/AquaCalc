@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 🔥 SEO META TAGS 🔥 -->
+    <meta name="description" content="Калькулятор реминерализации воды для аквариума — расчёт дозировок Ca, Mg, Na, K для L-сомов и других видов. Aquarium water calculator for remineralization, GH, KH, TDS.">
+    <meta name="keywords" content="aquarium water calculator, аквариумный калькулятор, remineralization, реминерализация воды, GH KH calculator, калькулятор жёсткости, L-catfish breeding, разведение лорикариевых сомов, TDS calculator, осмос, вода для аквариума, Ca Mg ratio, кальций магний, аквариумные соли, water parameters, параметры воды, PlecoHobby, L-сомы, л-сомы, калькулятор солей, remineralization calculator, aquarium chemistry, химия воды, аквариумистика">
+    <meta name="author" content="PlecoHobby">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0284C7">
+    
+    <!-- 🔥 OPEN GRAPH / SOCIAL SHARING 🔥 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AquaCalc — Калькулятор параметров воды для аквариума">
+    <meta property="og:description" content="Профессиональный калькулятор реминерализации воды. Расчёт GH, KH, TDS, ионного состава для L-сомов и других видов.">
+    <meta property="og:url" content="https://plecohobby.github.io/AquaCalc/">
+    <meta property="og:image" content="https://plecohobby.github.io/AquaCalc/img/logo.png">
+    <meta property="og:site_name" content="AquaCalc">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AquaCalc — Aquarium Water Calculator">
+    <meta name="twitter:description" content="Professional water remineralization calculator for aquarium fish breeding. GH, KH, TDS, ion composition.">
+    
+    <!-- 🔥 FAVICON & PWA 🔥 -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+    <link rel="apple-touch-icon" sizes="256x256" href="img/icon-256.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- 🔥 GOOGLE ANALYTICS 🔥 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0G95GCRLW4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0G95GCRLW4');
+    </script>
+    <!-- 🔥 КОНЕЦ GOOGLE ANALYTICS 🔥 -->
+    
+    <title>AquaCalc — Калькулятор параметров воды | Aquarium Water Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- 🔥 STRUCTURED DATA: WebApplication — 100% VALID 2026 🔥 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "AquaCalc",
+      "alternateName": [
+        "Aquarium Water Calculator",
+        "Калькулятор реминерализации воды",
+        "GH KH Calculator",
+        "Аквариумный калькулятор солей",
+        "L-catfish Water Remineralization"
+      ],
+      "url": "https://plecohobby.github.io/AquaCalc/",
+      "image": "https://plecohobby.github.io/AquaCalc/img/logo.png",
+      "description": "Бесплатный калькулятор реминерализации воды для аквариума. Точный расчёт дозировок солей (Ca, Mg, Na, K), GH, KH, TDS и ионного состава. Оптимизировано для разведения L-сомов (Panaqolus, Hypancistrus и др.), PlecoHobby и мягких биотопов.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Требуется JavaScript. Работает в любом современном браузере (Chrome, Firefox, Safari, Edge и др.)",
+      "inLanguage": ["ru", "en"],
+      "isAccessibleForFree": true,
+      "softwareVersion": "1.0",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "PlecoHobby",
+        "url": "https://plecohobby/AquaCalc"
+      }
+    }
+    </script>
+</head>
+<body>
+<div class="container" id="mainContent">
+    <header>
+        <h1>
+            <img src="img/logo.png" alt="AquaCalc Logo" class="site-logo">
+            AquaCalc
+        </h1>
+        <p class="subtitle" data-i18n="subtitle">Калькулятор реминерализации воды для аквариума</p>
+    </header>
+
+    <main>
+        <!-- Карточка 1: Желаемые параметры -->
+<section class="card input-section">
+    <h2 data-i18n="desired_params">Желаемые параметры</h2>
+    
+    <!-- Переключатель языка -->
+    <div class="language-switcher card-lang">
+        <button class="lang-btn active" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    
+    <div class="input-grid">
+        <div class="input-group">
+            <label data-i18n="gh_label">Общая жёсткость (GH)</label>
+            <div class="input-with-unit">
+                <input type="text" id="editHardness" value="6" pattern="[0-9.,]*">
+                <span class="unit-inline">°dGH</span>
+            </div>
+        </div>
+        <div class="input-group">
+            <label data-i18n="kh_label">Карбонатная жёсткость (KH)</label>
+            <div class="input-with-unit">
+                <input type="text" id="editKH" value="2" pattern="[0-9.,]*">
+                <span class="unit-inline">°dKH</span>
+            </div>
+        </div>
+        <div class="input-group">
+            <label data-i18n="volume_label">Объём воды</label>
+            <div class="input-with-unit">
+                <input type="text" id="editVolume" value="10" pattern="[0-9.,]*">
+                <span class="unit-inline" data-i18n="liters">л</span>
+            </div>
+        </div>
+        <div class="input-group">
+            <label data-i18n="ca_mg_ratio">Соотношение Ca:Mg</label>
+            <div class="input-with-unit">
+                <input type="text" id="Ca_Mg" value="4" pattern="[0-9.,]*">
+                <span class="unit-inline">: 1</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Карточка 2: Выбор препаратов -->
+<section class="card salts-section">
+    <h2 data-i18n="salt_selection">Выбор препаратов</h2>
+    <div class="salts-grid">
+        <div class="salt-group">
+            <label data-i18n="calcium_source">Источник кальция</label>
+            <select id="CaBox">
+                <option value="0" data-i18n="caso4">CaSO₄·2H₂O (гипс)</option>
+                <option value="1" data-i18n="cacl2_anh">CaCl₂ (безводный)</option>
+                <option value="2" data-i18n="cacl2_2h2o">CaCl₂·2H₂O (дигидрат)</option>
+                <option value="3">CaCl₂·6H₂O</option>
+            </select>
+        </div>
+        <div class="salt-group">
+            <label data-i18n="magnesium_source">Источник магния</label>
+            <select id="MgBox">
+                <option value="0" data-i18n="mgso4_7h2o">MgSO₄·7H₂O (эпсом)</option>
+                <option value="1" data-i18n="mgso4_anh">MgSO₄ (безводный)</option>
+                <option value="2">MgCl₂·6H₂O</option>
+            </select>
+        </div>
+        <div class="salt-group">
+            <label data-i18n="potassium_source">Источник калия</label>
+            <select id="KBox">
+                <option value="0">K₂SO₄</option>
+                <option value="1">KCl</option>
+                <option value="2">K₂CO₃</option>
+            </select>
+        </div>
+    </div>
+</section>
+
+<!-- Карточка 3: Необходимо внести -->
+<section class="card results-section">
+    <h2 data-i18n="add_dosage">Необходимо внести</h2>
+    <div class="results-grid">
+        <div class="result-item">
+            <span class="result-label" id="saltCaName">CaSO₄·2H₂O</span>
+            <span class="result-value" id="lblCaValue">0.00 г</span>
+        </div>
+        <div class="result-item">
+            <span class="result-label" id="saltMgName">MgSO₄·7H₂O</span>
+            <span class="result-value" id="lblMgValue">0.00 г</span>
+        </div>
+        <div class="result-item">
+            <span class="result-label">NaHCO₃</span>
+            <span class="result-value" id="lblNaHCO3Value">0.00 г</span>
+        </div>
+        <div class="result-item">
+            <span class="result-label" id="saltKName">KCl</span>
+            <span class="result-value" id="Label_K">0.00 г</span>
+        </div>
+    </div>
+</section>
+
+<!-- Карточка 4: Ионный состав -->
+<section class="card ions-section">
+    <h2 data-i18n="ion_composition">Ионный состав воды</h2>
+    <div class="ion-grid">
+        <div class="ion-item">
+            <span class="ion-name">Ca²⁺</span>
+            <span class="ion-value" id="Label3">0.0 мг/л</span>
+        </div>
+        <div class="ion-item">
+            <span class="ion-name">Mg²⁺</span>
+            <span class="ion-value" id="Label10">0.0 мг/л</span>
+        </div>
+        <div class="ion-item">
+            <span class="ion-name">Na⁺</span>
+            <span class="ion-value" id="Label_Na">0.0 мг/л</span>
+        </div>
+        <div class="ion-item">
+            <span class="ion-name">K⁺</span>
+            <span class="ion-value" id="Label_Ka">0.0 мг/л</span>
+        </div>
+        <div class="ion-item">
+            <span class="ion-name">SO₄²⁻</span>
+            <span class="ion-value" id="Label15">0.0 мг/л</span>
+        </div>
+        <div class="ion-item">
+            <span class="ion-name">Cl⁻</span>
+            <span class="ion-value" id="Label5">0.0 мг/л</span>
+        </div>
+        <div class="ion-item">
+            <span class="ion-name">HCO₃⁻</span>
+            <span class="ion-value" id="Label_HCO3">0.0 мг/л</span>
+        </div>
+    </div>
+</section>
+
+<!-- Карточка 5: Сводка -->
+<section class="card summary-section">
+    <h2 data-i18n="summary">Сводка</h2>
+    <div class="summary-grid">
+        <div class="summary-card">
+            <div class="summary-label">TDS</div>
+            <div class="summary-value" id="Label_TDC">0 ppm</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-label">TH (CaCO₃)</div>
+            <div class="summary-value" id="Label_TH_CaCO3">0 мг/л</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-label">KH</div>
+            <div class="summary-value" id="Label_KH">0 °dKH</div>
+        </div>
+    </div>
+    <div class="info-bar">
+        <span id="Label_info">GH ≈ 0.0 | KH ≈ 0.0 | Ca:Mg ≈ 0.00:1</span>
+    </div>
+</section>
+
+<!-- Кнопки -->
+<section class="actions-section">
+    <button class="btn btn-primary" id="btnExport" data-i18n="export_report">📥 Скачать отчёт (HTML)</button>
+    <button class="btn btn-secondary" id="btnReset" data-i18n="reset">🔄 Сбросить</button>
+    <button class="btn btn-info" id="btnAbout" data-i18n="help">ℹ️ Справка</button>
+    <button class="btn btn-info" id="btnSupport" data-i18n="support">💖 Поддержать проект</button>
+</section>
+
+<!-- Footer -->
+
+    <footer>
+    <p>PlecoHobby © <span id="year"></span></p>
+    <p data-i18n="footer_slogan">Профессионализм в каждой капле.</p>
+</footer>
+</div>
+
+<!-- Модальное окно справки -->
+<div id="aboutModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 data-i18n="important_notice">⚠️ ВАЖНОЕ УВЕДОМЛЕНИЕ</h2>
+        
+        <div class="disclaimer">
+            <p>⚠️ <strong data-i18n="important_notice">ВАЖНОЕ УВЕДОМЛЕНИЕ</strong></p>
+            <p data-i18n="disclaimer_p1">Данный калькулятор предоставлен исключительно в ознакомительных целях.</p>
+            <p data-i18n="disclaimer_p2">Мы не несём ответственности за любые последствия, возникшие в результате использования полученных данных, включая вред здоровью рыб, повреждение оборудования или иные убытки.</p>
+            <p data-i18n="disclaimer_p3">Перед применением любых препаратов рекомендуется:</p>
+            <ul>
+                <li data-i18n="disclaimer_li1">Проверить расчёты независимым источником.</li>
+                <li data-i18n="disclaimer_li2">Начинать с меньших дозировок.</li>
+                <li data-i18n="disclaimer_li3">Контролировать параметры воды тестами.</li>
+                <li data-i18n="disclaimer_li4">Наблюдать за состоянием рыб.</li>
+            </ul>
+            <p><strong data-i18n="disclaimer_final">Используя этот калькулятор, вы принимаете на себя полную ответственность за все действия и их последствия.</strong></p>
+        </div>
+
+        <div class="modal-body">
+            <h3 data-i18n="license">📄 Лицензия</h3>
+            <div class="license-text">
+                <div class="copyright-header">📜 LICENSE</div>
+                <div class="copyright-notice">Copyright (c) 2024-2025 PlecoHobby. All Rights Reserved.</div>
+                
+                <p><strong data-i18n="prohibited">1. ЗАПРЕЩЕНО:</strong></p>
+                <ul>
+                    <li data-i18n="prohibited_li1">Копирование, распространение или использование кода в коммерческих целях без письменного разрешения.</li>
+                    <li data-i18n="prohibited_li2">Изменение, модификация или создание производных продуктов.</li>
+                    <li data-i18n="prohibited_li3">Продажа, sublicensing или передача прав третьим лицам.</li>
+                </ul>
+                
+                <p><strong data-i18n="permitted">2. РАЗРЕШЕНО:</strong></p>
+                <ul>
+                    <li data-i18n="permitted_li1">Личное использование (некоммерческое).</li>
+                    <li data-i18n="permitted_li2">Просмотр кода в ознакомительных целях.</li>
+                </ul>
+                
+                <p><strong data-i18n="commercial">3. КОММЕРЧЕСКОЕ ИСПОЛЬЗОВАНИЕ:</strong></p>
+                <ul>
+                    <li data-i18n="commercial_li1">Доступно только после приобретения лицензии.</li>
+                    <li>
+                     <span data-i18n="commercial_li2">Для покупки обращайтесь:</span> 
+                     <a href="mailto:plecohobby@gmail.com" style="color: #22D3EE; text-decoration: none; border-bottom: 2px solid rgba(34, 211, 238, 0.5);">plecohobby@gmail.com</a>
+                </li>
+                </ul>
+                
+                <p><strong data-i18n="responsibility">4. ОТВЕТСТВЕННОСТЬ:</strong></p>
+                <ul>
+                    <li data-i18n="responsibility_li1">Программа предоставляется "КАК ЕСТЬ".</li>
+                    <li data-i18n="responsibility_li2">Авторы не несут ответственности за убытки.</li>
+                </ul>
+                
+                <p class="warning-final">⚠️ <span data-i18n="violation">Нарушение данной лицензии влечёт юридическую ответственность.</span></p>
+            </div>
+        </div>
+
+<!-- 🔥 СПРАВКА — В СТИЛЕ ЛИЦЕНЗИИ (БЕЗ НОВЫХ СТИЛЕЙ) 🔥 -->
+<div class="modal-body">
+    <h3 data-i18n="help_title">📖 Справка</h3>
+    <div class="license-text">
+        <div class="copyright-header">📖 HELP</div>
+        
+        <p><strong data-i18n="help_can_change">1. Что можно выбрать:</strong></p>
+        <ul>
+            <li data-i18n="help_calcium"><strong>Кальций (Ca²⁺)</strong> — выбирайте источник кальция из списка (гипс, CaCl₂ и др.).</li>
+            <li data-i18n="help_magnesium"><strong>Магний (Mg²⁺)</strong> — выбирайте источник магния (эпсом, MgSO₄ и др.).</li>
+            <li data-i18n="help_potassium"><strong>Калий (K⁺)</strong> — выбирайте источник калия (K₂SO₄, KCl, K₂CO₃).</li>
+            <li data-i18n="help_ratio"><strong>Соотношение Ca:Mg</strong> — настройте пропорцию кальция к магнию (по умолчанию 4:1).</li>
+            <li data-i18n="help_gh_kh"><strong>GH, KH, Объём</strong> — укажите целевые параметры воды.</li>
+        </ul>
+
+        <p><strong data-i18n="help_cannot_change">2. Что нельзя выбрать:</strong></p>
+        <ul>
+            <li data-i18n="help_sodium"><strong>Натрий (Na⁺)</strong> — рассчитывается автоматически из KH (через NaHCO₃).</li>
+            <li data-i18n="help_potassium_fixed"><strong>Калий (K⁺)</strong> — зафиксирован на уровне <strong>3.0 мг/л</strong> (оптимально для рыб).</li>
+        </ul>
+
+        <p><strong data-i18n="help_export">3. Результат экспорта:</strong></p>
+        <ul>
+            <li data-i18n="help_export_1">Нажмите "Скачать отчёт (HTML)" для сохранения рецепта.</li>
+            <li data-i18n="help_export_2">Отчёт содержит все параметры и дозировки солей.</li>
+            <li data-i18n="help_export_3">Можно открыть в любом браузере или распечатать.</li>
+        </ul>
+
+        <p class="warning-final" data-i18n="help_note">⚠️ Цифры в калькуляторе ≠ параметры в воде; всегда перепроверяйте тестами.</p>
+    </div>
+</div>
+    </div>
+</div>
+<!-- Модальное окно поддержки -->
+<div id="supportModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 data-i18n="support_title">💖 Поддержать проект</h2>
+        
+        <div class="modal-body">
+            <div class="license-text">
+                <div class="copyright-header">💳 SUPPORT AQUACALC</div>
+                <div class="copyright-notice" data-i18n="support_desc">AquaCalc — бесплатный калькулятор для аквариумистов.</div>
+                
+                <p><strong data-i18n="support_greeting">Привет!</strong></p>
+                <p data-i18n="support_text1">Этот калькулятор создан энтузиастами для аквариумистов.</p>
+                <p data-i18n="support_text2">Мы делаем его бесплатным и доступным для всех.</p>
+                
+                <p data-i18n="support_text3">Если проект оказался полезным для вас, вы можете поддержать его развитие:</p>
+                
+                <p><strong data-i18n="support_ways">Способы поддержки:</strong></p>
+                <ul>
+                    <li data-i18n="support_way1"><strong>💰 Финансово</strong> — любая сумма поможет оплатить хостинг и домен.</li>
+                    <li data-i18n="support_way2"><strong>📢 Рассказать друзьям</strong> — поделитесь ссылкой с другими аквариумистами.</li>
+                    <li data-i18n="support_way3"><strong>⭐ Оставить отзыв</strong> — ваш фидбек помогает улучшать калькулятор.</li>
+                    <li data-i18n="support_way4"><strong>🐛 Сообщить об ошибке</strong> — помогите сделать проект лучше.</li>
+                </ul>
+                
+                <p><strong data-i18n="support_wallets">Кошельки для поддержки:</strong></p>
+                <ul>
+                    <li>💳 <strong>USDT (ERC20):</strong> <code class="wallet-address" onclick="copyToClipboard('0x2B1EBf86E97d9248655dfB52bE30B7caA0308dAA')" title="Нажмите чтобы скопировать">0x2B1EBf86E97d9248655dfB52bE30B7caA0308dAA</code></li>
+                    <li>💳 <strong>SOL (Solana):</strong> <code class="wallet-address" onclick="copyToClipboard('7zHNR9VhvWR4thECBFhQKGxQ6qRkE5rTLu5vGNCskC9a')" title="Нажмите чтобы скопировать">7zHNR9VhvWR4thECBFhQKGxQ6qRkE5rTLu5vGNCskC9a</code></li>
+                    <li>💳 <strong>USDT (TRC20):</strong> <code class="wallet-address" onclick="copyToClipboard('TRfPbRiYihPkY2CHd6GTLDH8o4r6ZW9vuG')" title="Нажмите чтобы скопировать">TRfPbRiYihPkY2CHd6GTLDH8o4r6ZW9vuG</code></li>
+                </ul>
+                
+                <p><strong data-i18n="support_contact">Для связи:</strong></p>
+                <ul>
+                    <li>📧 Email: <a href="mailto:plecohobby@gmail.com" style="color: #22D3EE; text-decoration: none; border-bottom: 2px solid rgba(34, 211, 238, 0.5);">plecohobby@gmail.com</a></li>
+                    <li>📱 Telegram: <a href="https://t.me/PlecoHobby" target="_blank" rel="noopener noreferrer" style="color: #22D3EE; text-decoration: none; border-bottom: 2px solid rgba(34, 211, 238, 0.5);">@PlecoHobby</a></li>
+                    <li>🔗 GitHub: <a href="https://github.com/lamerspy/Aquacalc" target="_blank" rel="noopener noreferrer" style="color: #22D3EE; text-decoration: none; border-bottom: 2px solid rgba(34, 211, 238, 0.5);">lamerspy/Aquacalc</a> <span style="color: #7DD3FC; font-size: 0.85em;"></span></li>
+                </ul>
+                
+                <p class="warning-final" data-i18n="support_thanks">⚠️ Спасибо за вашу поддержку! Вместе мы сделаем проект лучше.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
