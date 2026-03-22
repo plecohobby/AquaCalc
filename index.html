@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- 🔥 SEO META TAGS 🔥 -->
     <meta name="description" content="Калькулятор реминерализации воды для аквариума — расчёт дозировок Ca, Mg, Na, K для L-сомов и других видов. Aquarium water calculator for remineralization, GH, KH, TDS.">
@@ -28,19 +28,17 @@
     <link rel="manifest" href="manifest.json">
     
     <!-- 🔥 GOOGLE ANALYTICS 🔥 -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L3VFB7JZTY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-L3VFB7JZTY');
-</script>
-<!-- 🔥 КОНЕЦ GOOGLE ANALYTICS 🔥 -->
-    
-    <title>AquaCalc — Калькулятор параметров воды | Aquarium Water Calculator</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3VFB7JZTY"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L3VFB7JZTY');
+    </script>
+    <!-- 🔥 КОНЕЦ GOOGLE ANALYTICS 🔥 -->
+     <title>AquaCalc — Калькулятор параметров воды | Aquarium Water Calculator</title>
     <link rel="stylesheet" href="style.css">
-    
     <!-- 🔥 STRUCTURED DATA: WebApplication — 100% VALID 2026 🔥 -->
     <script type="application/ld+json">
     {
@@ -85,19 +83,16 @@
         </h1>
         <p class="subtitle" data-i18n="subtitle">Калькулятор реминерализации воды для аквариума</p>
     </header>
-
     <main>
         <!-- Карточка 1: Желаемые параметры -->
-<section class="card input-section">
+ <section class="card input-section">
     <h2 data-i18n="desired_params">Желаемые параметры</h2>
-    
-    <!-- Переключатель языка -->
+     <!-- Переключатель языка -->
     <div class="language-switcher card-lang">
         <button class="lang-btn active" data-lang="ru">RU</button>
         <button class="lang-btn" data-lang="en">EN</button>
     </div>
-    
-    <div class="input-grid">
+     <div class="input-grid">
         <div class="input-group">
             <label data-i18n="gh_label">Общая жёсткость (GH)</label>
             <div class="input-with-unit">
@@ -128,7 +123,6 @@
         </div>
     </div>
 </section>
-
 <!-- Карточка 2: Выбор препаратов -->
 <section class="card salts-section">
     <h2 data-i18n="salt_selection">Выбор препаратов</h2>
@@ -160,7 +154,6 @@
         </div>
     </div>
 </section>
-
 <!-- Карточка 3: Необходимо внести -->
 <section class="card results-section">
     <h2 data-i18n="add_dosage">Необходимо внести</h2>
@@ -183,7 +176,6 @@
         </div>
     </div>
 </section>
-
 <!-- Карточка 4: Ионный состав -->
 <section class="card ions-section">
     <h2 data-i18n="ion_composition">Ионный состав воды</h2>
@@ -218,7 +210,6 @@
         </div>
     </div>
 </section>
-
 <!-- Карточка 5: Сводка -->
 <section class="card summary-section">
     <h2 data-i18n="summary">Сводка</h2>
@@ -262,9 +253,8 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2 data-i18n="important_notice">⚠️ ВАЖНОЕ УВЕДОМЛЕНИЕ</h2>
-        
         <div class="disclaimer">
-            <p>⚠️ <strong data-i18n="important_notice">ВАЖНОЕ УВЕДОМЛЕНИЕ</strong></p>
+            <p><strong data-i18n="important_notice">ВАЖНОЕ УВЕДОМЛЕНИЕ</strong></p>
             <p data-i18n="disclaimer_p1">Данный калькулятор предоставлен исключительно в ознакомительных целях.</p>
             <p data-i18n="disclaimer_p2">Мы не несём ответственности за любые последствия, возникшие в результате использования полученных данных, включая вред здоровью рыб, повреждение оборудования или иные убытки.</p>
             <p data-i18n="disclaimer_p3">Перед применением любых препаратов рекомендуется:</p>
